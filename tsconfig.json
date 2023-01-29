@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    /* Куда идет сборка (в нашем случае не нужна, мы собираем все с webpack) */
+    "outDir": "./dist/",
+    /* Подсвечивает места где тип не указан */
+    "noImplicitAny": true,
+    "module": "ESNext",
+    /* В какую версию ecmascript будет компилироваться (поддержка браузеров) */
+    "target": "es5",
+    "jsx": "react-jsx",
+    /* Компилятор будет обрабатывать не только ts но и js */
+    "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    /* 
+    esModuleInterop позволяет работать с пакетами, 
+    которые используют в common js (requires() module.export) как с обычными пакетами с import 
+    import Moment from 'moment';
+    без флага esModuleInterop результат undefined
+    с флагом [object Object]
+    */
+    "esModuleInterop": true,
+    /*
+      Если какая либо библиотека не имеет export default 
+      лоадеры вроде ts-loader или babel-loader автоматом создают их
+      вместо такого импорта import * as React from 'react'
+      можно писать такой import React from 'react'
+    */
+    "allowSyntheticDefaultImports": true,
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
