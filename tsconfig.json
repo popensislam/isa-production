@@ -27,6 +27,7 @@
       можно писать такой import React from 'react'
     */
     "allowSyntheticDefaultImports": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules"}]
   },
   "ts-node": {
     "compilerOptions": {
