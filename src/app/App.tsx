@@ -1,12 +1,9 @@
-import { Suspense } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+/* COMPONENTS */
+import { Navbar } from "widgets/Navbar";
 
 /* HELPERS */
-import { classNames } from "../shared/lib/classNames";
-
-/* PAGES */
-import { AboutPage } from "pages/AboutPage";
-import { MainPage } from "pages/MainPage";
+import { classNames } from "shared/lib/classNames";
+import { AppRouter } from "./providers/router";
 
 /* HOOKS */
 import { useTheme } from "./providers/ThemeProvider/lib/useTheme";
@@ -20,15 +17,9 @@ export function App() {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback={<div>Loading...</div>}>
+        <Navbar/>
+        <AppRouter/>
         <button onClick={toggleTheme}>Toggle theme</button>
-        <Link to={'/'}>Main page</Link>
-        <Link to={'about'}>About page</Link>
-        <Routes>
-            <Route path={'/'} element={<MainPage />}/>
-            <Route path={'/about'} element={<AboutPage />}/>
-        </Routes>
-      </Suspense>
     </div>
   )
 }
