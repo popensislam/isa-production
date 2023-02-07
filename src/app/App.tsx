@@ -1,5 +1,6 @@
 /* COMPONENTS */
 import { Navbar } from "widgets/Navbar";
+import { Sidebar } from "widgets/Sidebar";
 
 /* HELPERS */
 import { classNames } from "shared/lib/classNames";
@@ -18,7 +19,10 @@ export function App() {
   return (
     <div className={classNames('app', {}, [theme])}>
         <Navbar/>
-        <AppRouter/>
+        <div className="content-page">
+          <Sidebar/>
+          <AppRouter/>
+        </div>
     </div>
   )
 }
