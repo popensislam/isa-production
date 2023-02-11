@@ -5,7 +5,12 @@
     "src/shared/config/i18n"
   ],
   "i18n-ally.keystyle": "flat",
+
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "scss"],
+
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-}
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+  }
 }
