@@ -4,5 +4,8 @@
     "public/locales",
     "src/shared/config/i18n"
   ],
-  "i18n-ally.keystyle": "flat"
+  "i18n-ally.keystyle": "flat",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+}
 }

@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 import webpack from 'webpack';
 import { buildDevServer } from './buildDevServer';
 
@@ -6,11 +6,11 @@ import { buildDevServer } from './buildDevServer';
 import { buildLoaders } from './buildLoaders';
 import { buildPlugin } from './buildPlugins';
 import { buildResolves } from './buildResolves';
-import { BuildOptions } from "./types/config";
+import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
 
-  const {paths, mode, isDev} = options
+  const { paths, mode, isDev } = options;
 
   return {
     mode: mode,
@@ -21,11 +21,9 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
       clean: true,
     },
     plugins: buildPlugin(options),
-    module: {
-      rules: buildLoaders(options)
-    },
+    module: { rules: buildLoaders(options) },
     resolve: buildResolves(options),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined
-  }
+  };
 }
