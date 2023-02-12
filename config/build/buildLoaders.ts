@@ -66,7 +66,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   const typescriptLoader = {
     test: /\.tsx?$/,
-    // use: 'ts-loader',
     use: [
       {
         loader: 'ts-loader',
