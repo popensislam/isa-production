@@ -2,5 +2,7 @@
   "Тестовый перевод": "Test tran",
   "Перевод": "Change lang",
   "Язык": "English",
-  "not found page": "Page not found"
+  "not found page": "Page not found",
+  "unexpected error": "Unexpected error",
+  "reload page": "Reload page"
 }

@@ -5,7 +5,7 @@ import { Sidebar } from 'widgets/Sidebar';
 /* HELPERS */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 
 /* HOOKS */
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';

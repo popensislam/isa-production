@@ -1,3 +1,4 @@
+import { BugButton } from 'app/providers/ErrorBoundary/ui/BugButton';
 import { useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LangSwitcher } from 'widgets/LandSwitcher';
@@ -20,6 +21,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div className={cls.switchers}>
         <ThemeSwitcher/>
         <LangSwitcher className={cls.lang}/>
+        <BugButton/>
       </div>
     </div>
   );
