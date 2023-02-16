@@ -11,7 +11,7 @@ import { Suspense, useEffect } from 'react';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 
 /* ALL STYLES */
-import './styles/index.scss';
+import 'app/styles/index.scss';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from 'widgets/LandSwitcher';
 

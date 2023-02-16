@@ -1,5 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWithTransltion';
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
 

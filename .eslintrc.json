@@ -15,7 +15,10 @@
       "plugin:i18next/recommended"
     ],
     "rules": {
-      "i18next/no-literal-string": ["error", {"markupOnly": true}],
+      "i18next/no-literal-string": ["error", {
+        "markupOnly": true,
+        "ignoreAttribute": ["data-testId", "to"]
+      }],
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
@@ -199,7 +202,7 @@
       { 
         "files": [ "**/src/**/*.test.(ts, tsx)" ],
         "rules": {
-          "i18next/no-literal-string": "off",
+          "i18next/no-literal-string": "off"
         }
       } 
       ]
