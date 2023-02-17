@@ -1,16 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Sidebar } from './Sidebar';
+import { NotFoundPage } from '..';
 
 export default {
-  title: 'widgets/Sidebar',
-  component: Sidebar,
+  title: 'pages/NotFoundPage',
+  component: NotFoundPage,
   argTypes: { backgroundColor: { control: 'color' }, },
-} as ComponentMeta<typeof Sidebar>;
+} as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage />;
 
 
 export const Light = Template.bind({});

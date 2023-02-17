@@ -1,16 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Sidebar } from './Sidebar';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
-  title: 'widgets/Sidebar',
-  component: Sidebar,
+  title: 'shared/ThemeSwitcher',
+  component: ThemeSwitcher,
   argTypes: { backgroundColor: { control: 'color' }, },
-} as ComponentMeta<typeof Sidebar>;
+} as ComponentMeta<typeof ThemeSwitcher>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
 
 
 export const Light = Template.bind({});

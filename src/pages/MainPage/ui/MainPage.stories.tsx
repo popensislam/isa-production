@@ -1,16 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Sidebar } from './Sidebar';
+import MainPage from './MainPage';
 
 export default {
-  title: 'widgets/Sidebar',
-  component: Sidebar,
+  title: 'pages/MainPage',
+  component: MainPage,
   argTypes: { backgroundColor: { control: 'color' }, },
-} as ComponentMeta<typeof Sidebar>;
+} as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof MainPage> = (args) => <MainPage />;
 
 
 export const Light = Template.bind({});

@@ -17,7 +17,8 @@
     "rules": {
       "i18next/no-literal-string": ["error", {
         "markupOnly": true,
-        "ignoreAttribute": ["data-testId", "to"]
+        "ignoreAttribute": ["data-testId", "to"],
+        "ignorePatters": ["**/test/*.(tsx | ts | js | jsx)"]
       }],
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",
