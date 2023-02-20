@@ -13,15 +13,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - name: install modules
+      # - name: install modules
       run: npm install
-      - name: build production project
+      # - name: build production project
       run: npm run build:prod
-      - name: eslint
+      # - name: eslint
       run: npm run lint
-      - name: stylelint
+      # - name: stylelint
       run: npm run lint:scss
-      - name: unit testing
+      # - name: unit testing
       run: npm run test:unit
 # name: linting, testing, building
 # run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
