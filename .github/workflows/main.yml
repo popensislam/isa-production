@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+      - name: Install modules
+        run: npm install
       # - name: install modules
       # run: npm install
       # - name: build production project
