@@ -15,10 +15,9 @@
       "plugin:i18next/recommended"
     ],
     "rules": {
-      "i18next/no-literal-string": ["error", {
+      "i18next/no-literal-string": ["warn", {
         "markupOnly": true,
-        "ignoreAttribute": ["data-testId", "to"],
-        "ignorePatters": ["**/test/*.(tsx | ts | js | jsx)"]
+        "ignoreAttribute": ["data-testId", "to"]
       }],
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",

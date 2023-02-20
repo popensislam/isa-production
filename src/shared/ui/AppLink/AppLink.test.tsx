@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { renderWithRouter } from 'shared/lib/renderWithRouter/renderWithRouter';
 import { AppLink, AppLinkTheme } from './AppLink';
 

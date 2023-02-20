@@ -11,7 +11,7 @@ export default {
   argTypes: { backgroundColor: { control: 'color' }, },
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => <AboutPage />;
+const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 
 export const Light = Template.bind({});
