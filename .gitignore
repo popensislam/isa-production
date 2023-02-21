@@ -2,3 +2,4 @@
 /build
 .ides
 .env
+/storybook-static
