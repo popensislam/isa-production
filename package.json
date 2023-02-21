@@ -93,6 +93,9 @@
     "regenerator-runtime": "^0.13.9"
   },
   "loki": {
+    "looks-same": {
+      "ignoreCaret": true
+    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
