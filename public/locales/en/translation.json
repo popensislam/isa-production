@@ -5,5 +5,8 @@
   "not found page": "Page not found",
   "unexpected error": "Unexpected error",
   "reload page": "Reload page",
-  "pereklyuchit": "Switch"
+  "pereklyuchit": "Switch",
+  "shortLang": "En",
+  "main": "Main",
+  "about": "About"
 }

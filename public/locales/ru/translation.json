@@ -5,5 +5,8 @@
   "not found page": "Страница не найдена",
   "unexpected error": "Произошла непредвиденная ошибка",
   "reload page": "Обновить страницу",
-  "pereklyuchit": "Переключить"
+  "pereklyuchit": "Переключить",
+  "shortLang": "Ру",
+  "main": "Главная страница",
+  "about": "О сайте"
 }
