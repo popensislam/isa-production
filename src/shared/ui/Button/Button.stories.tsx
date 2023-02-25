@@ -20,6 +20,11 @@ Clear.decorators = [ ThemeDecorator(Theme.LIGHT) ];
 
 Clear.args = { children: 'Button', theme: ThemeButton.CLEAR };
 
+export const ClearInverted = Template.bind({});
+ClearInverted.decorators = [ ThemeDecorator(Theme.LIGHT) ];
+
+ClearInverted.args = { children: 'Button', theme: ThemeButton.INVERTED_CLEAR };
+
 export const Outline = Template.bind({});
 Outline.decorators = [ ThemeDecorator(Theme.LIGHT) ];
 

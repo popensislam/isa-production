@@ -29,11 +29,13 @@
 }
 
 .dark {
-  background: var(--inverted-modal-bg-color);
+  background: var(--modal-bg-color);
+  color: var(--primary-modal-color);
 }
 
 .light {
-  background: var(--modal-bg-color);
+  background: var(--inverted-modal-bg-color);
+  color: var(--secondary-modal-color);
 }
 
 .opened {

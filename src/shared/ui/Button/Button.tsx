@@ -6,6 +6,7 @@ import 'app/styles/index.scss';
 
 export enum ThemeButton {
     CLEAR = 'clear',
+    INVERTED_CLEAR = 'invertedClear',
     OUTLINE = 'outline',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted'

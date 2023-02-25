@@ -16,14 +16,11 @@ import { Modal } from 'shared/ui/Modal/Modal';
 export function App() {
   const { theme } = useTheme();
 
-  const [ isOpen, setIsOpen ] = useState(false);
 
   return (
     <div className={classNames('app', {}, [ theme ])}>
       <Suspense fallback="">
         <Navbar/>
-        <button onClick={() => setIsOpen(true)}>toggle</button>
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}/>
         <div className="content-page">
           <Sidebar/>
           <AppRouter/>
