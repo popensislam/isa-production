@@ -1,4 +1,12 @@
 body {
+  /* Modal */
+  --modal-bg-color: #e8e8ea;
+  --inverted-modal-bg-color: #0e0e75;
+  --primary-modal-color: #0232c2;
+  --secondary-modal-color: #04ff04;
+}
+
+:root {
   --font-family-main: consolas, "Times New Roman", serif;
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -22,10 +30,4 @@ body {
   /* colors */
 
   --overlay-color: rgba(0 0 0 / 60%);
-
-  /* Modal */
-  --modal-bg-color: #e8e8ea;
-  --inverted-modal-bg-color: #0e0e75;
-  --primary-modal-color: #0232c2;
-  --secondary-modal-color: #04ff04;
 }
