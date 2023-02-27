@@ -10,9 +10,6 @@ import { Suspense, useState } from 'react';
 /* HOOKS */
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 
-/* ALL STYLES */
-import { Modal } from 'shared/ui/Modal/Modal';
-
 export function App() {
   const { theme } = useTheme();
 
