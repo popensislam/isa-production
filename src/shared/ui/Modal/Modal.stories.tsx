@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const Light = Template.bind({});
 Light.decorators = [ ThemeDecorator(Theme.LIGHT) ];
 
-Light.args = { children: 'Dark mode', isOpen: true, };
+Light.args = { children: 'Light mode', isOpen: true, };
 
 
 export const Dark = Template.bind({});
