@@ -29,13 +29,13 @@
 }
 
 .dark {
-  background: var(--modal-bg-color);
-  color: var(--primary-modal-color);
+  background: #e8e8ea;
+  color: #0232c2;
 }
 
 .light {
-  background: var(--inverted-modal-bg-color);
-  color: var(--secondary-modal-color);
+  background: #0e0e75;
+  color: #04ff04;
 }
 
 .opened {
