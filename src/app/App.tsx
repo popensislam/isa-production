@@ -5,16 +5,9 @@ import { Sidebar } from 'widgets/Sidebar';
 /* HELPERS */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
-import { Suspense, useEffect } from 'react';
-import { useTheme } from './providers/ThemeProvider';
+import { Suspense } from 'react';
 
 export function App() {
-
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    document.body.className = theme;
-  }, [ theme ]);
 
   return (
     <div className={classNames('app', {}, [ ])}>
