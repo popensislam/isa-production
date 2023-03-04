@@ -26,16 +26,8 @@
   transition: all 0.3s ease;
   transform: scale(0.5);
   max-width: 60%;
-}
-
-.dark {
-  background: #e8e8ea;
-  color: #0232c2;
-}
-
-.light {
-  background: #0e0e75;
-  color: #04ff04;
+  background: var(--inverted-bg-color);
+  color: var(--primary-color);
 }
 
 .opened {

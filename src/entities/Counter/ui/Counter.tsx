@@ -14,6 +14,7 @@ export const Counter = () => {
   const decrement = () => {
     dispatch(counterActions.decrement());
   };
+
   return (
     <div>
       <h1 data-testid='value-title'>value = {value}</h1>

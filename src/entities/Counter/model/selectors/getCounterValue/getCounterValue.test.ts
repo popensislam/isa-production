@@ -1,5 +1,5 @@
 import { counterActions, counterReducer } from '../../slice/counterSlice';
-import { CounterSchema } from '../../types/counterSchema';
+import { CounterSchema } from '../../types/CounterSchema';
 
 
 describe('getCounterValue', () => {

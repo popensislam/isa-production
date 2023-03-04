@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
-import { StateSchema } from './StateSchema';
+import type { StateSchema } from './StateSchema';
 
 
 export function createReduxStore(initialState?: StateSchema) {
