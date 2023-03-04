@@ -5,17 +5,19 @@ import { Sidebar } from 'widgets/Sidebar';
 /* HELPERS */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
-import { Suspense, useState } from 'react';
-
-/* HOOKS */
-import { useTheme } from './providers/ThemeProvider/lib/useTheme';
+import { Suspense, useEffect } from 'react';
+import { useTheme } from './providers/ThemeProvider';
 
 export function App() {
+
   const { theme } = useTheme();
 
+  useEffect(() => {
+    document.body.className = theme;
+  }, [ theme ]);
 
   return (
-    <div className={classNames('app', {}, [ theme ])}>
+    <div className={classNames('app', {}, [ ])}>
       <Suspense fallback="">
         <Navbar/>
         <div className="content-page">
