@@ -1,3 +1,4 @@
+import cls from './Sidebar.module.scss';
 import { BugButton } from 'app/providers/ErrorBoundary/ui/BugButton';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +10,6 @@ import { LangSwitcher } from 'widgets/LandSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import MainIcon from 'shared/assets/icons/home.svg';
 import AboutIcon from 'shared/assets/icons/about.svg';
-import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string
