@@ -29,7 +29,6 @@ server.post('/login', (req, res) => {
             (user) => user.username === username && user.password === password,
         );
 
-        console.log(req.body, ' user')
         if (userFromBd) {
             return res.json({ data: userFromBd, message: 'success' });
         }
