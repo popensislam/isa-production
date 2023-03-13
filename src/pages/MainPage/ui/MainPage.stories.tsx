@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import 'app/styles/index.scss';
+import MainPage from './MainPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import MainPage from './MainPage';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import 'app/styles/index.scss';
 
 export default {
   title: 'pages/MainPage',

@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import 'app/styles/index.scss';
+import { ThemeSwitcher } from './ThemeSwitcher';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeSwitcher } from './ThemeSwitcher';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import 'app/styles/index.scss';
 
 export default {
   title: 'shared/ThemeSwitcher',

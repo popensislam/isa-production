@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import { buildDevServer } from './buildDevServer';
 
 /* PLUGINS */
@@ -6,6 +5,7 @@ import { buildLoaders } from './buildLoaders';
 import { buildPlugin } from './buildPlugins';
 import { buildResolves } from './buildResolves';
 import { BuildOptions } from './types/config';
+import webpack from 'webpack';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
 
