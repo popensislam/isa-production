@@ -1,19 +1,21 @@
+import cls from './Modal.module.scss';
+import { Portal } from '../Portal/Portal';
 import { ReactNode, MouseEvent, useState, useRef, useEffect, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from '../Portal/Portal';
-import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string,
     children?: ReactNode,
     isOpen?: boolean,
+    lazy?: boolean
     onClose?: () => void,
 }
 
 const ANIMATION_DELAY = 300;
 
-export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
+export const Modal = ({ className, children, isOpen, lazy, onClose }: ModalProps) => {
 
+  const [ isMounted, setIsMounted ] = useState(false);
   const [ isClosing, setIsClosing ] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const closeHandler = useCallback(() => {
@@ -34,6 +36,12 @@ export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [ isOpen ]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
 
@@ -46,6 +54,11 @@ export const Modal = ({ className, children, isOpen, onClose }: ModalProps) => {
   const onContentClick = (e: MouseEvent) => {
     e.stopPropagation();
   };
+
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   const mods: Record<string, boolean> = { [ cls.opened ]: isOpen, [ cls.isClosing ]: isClosing };
   return (
