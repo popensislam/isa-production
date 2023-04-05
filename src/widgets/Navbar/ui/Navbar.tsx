@@ -39,7 +39,9 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   return (
     <div className={classNames(cls.navbar, {}, [ className ])}>
-      <LoginModal isOpen={isAuthModal} onClose={onToggleModal}/>
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={onToggleModal}/>
+      )}
       <Button theme={ThemeButton.CLEAR} onClick={onToggleModal}>
         {t('login')}
       </Button>

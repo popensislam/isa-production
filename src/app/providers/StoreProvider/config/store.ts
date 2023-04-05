@@ -1,7 +1,7 @@
+import { createReducerManager } from './reducerManager';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { configureStore } from '@reduxjs/toolkit';
-import { loginReducer } from 'features/AuthByUsername';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 import type { StateSchema } from './StateSchema';
 
@@ -11,16 +11,19 @@ export function createReduxStore(initialState?: StateSchema) {
   const rootReducers: ReducersMapObject<StateSchema> = {
     user: userReducer,
     counter: counterReducer,
-    loginForm: loginReducer,
   };
 
-  return configureStore<StateSchema>({
-    reducer: rootReducers,
+  const reducerManager = createReducerManager(rootReducers);
+
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState
   });
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  store.reducerManager = reducerManager;
+
+  return store;
 }
-
-export const store = configureStore({ reducer: {}, });
-
-export type AppDispatch = typeof store.dispatch
