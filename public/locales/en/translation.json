@@ -9,5 +9,8 @@
   "shortLang": "En",
   "main": "Main",
   "about": "About",
-  "login": "Login"
+  "login": "Login",
+  "form-auth": "Log in",
+  "wrong-password-login": "Wrond login or password, try again",
+  "logout": "Log out"
 }

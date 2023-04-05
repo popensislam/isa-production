@@ -72,3 +72,8 @@ export const SquareXL = Template.bind({});
 SquareXL.decorators = [ ThemeDecorator(Theme.DARK) ];
 
 SquareXL.args = { children: '>', theme: ThemeButton.BACKGROUND_INVERTED, square: true, size: ButtonSizes.XL };
+
+export const Disabled = Template.bind({});
+Disabled.decorators = [ ThemeDecorator(Theme.DARK) ];
+
+Disabled.args = { children: '>', theme: ThemeButton.OUTLINE, disabled: true, size: ButtonSizes.XL };

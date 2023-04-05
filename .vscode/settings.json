@@ -2,10 +2,7 @@
   "editor.tabSize": 2,
 
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "i18n-ally.localesPaths": [
-    "public/locales",
-    "src/shared/config/i18n"
-  ],
+  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
   "i18n-ally.keystyle": "flat",
 
   "stylelint.enable": true,
@@ -13,6 +10,6 @@
 
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
+    "source.fixAll.stylelint": true
   }
 }

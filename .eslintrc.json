@@ -72,7 +72,7 @@
         "warn",
         {
           "selector": "MemberExpression[property.name='log']",
-          "message": "Ну ты и лох консольный"
+          "message": "Are you sure about console log?"
         }
       ],
       "no-mixed-operators": [
@@ -182,7 +182,7 @@
       "array-element-newline": [
         "error",
         {
-          "minItems": 3
+          "minItems": 6
         }
       ],
       "object-property-newline": [
