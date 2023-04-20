@@ -1,6 +1,6 @@
 import cls from './Input.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ChangeEvent, InputHTMLAttributes, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -12,8 +12,8 @@ interface InputProps extends HTMLInputProps {
     autoFocus?: boolean
 }
 
-export const Input = ({ className, autoFocus, value, onChange, type = 'text', placeholder, ...otherProps }: InputProps) => {
-
+export const Input = memo(({ className, autoFocus, value, onChange, type = 'text', placeholder, ...otherProps }: InputProps) => {
+  Input.displayName = 'InputMemo';
   const inputRef = useRef<HTMLInputElement>(null);
   const [ isFocused, setIsFocused ] = useState(false);
   const [ caretPosition, setCaretPosition ] = useState(0);
@@ -70,4 +70,4 @@ export const Input = ({ className, autoFocus, value, onChange, type = 'text', pl
       </div>
     </div>
   );
-};
+});

@@ -26,6 +26,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Ислам",
+    "lastname": "Zhenishov",
+    "age": 20,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Ekaterinburg",
+    "username": "admin",
+    "avatar": "https://wallpapershome.com/images/pages/pic_h/21486.jpg"
   }
 }
