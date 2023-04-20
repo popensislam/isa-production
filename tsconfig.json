@@ -30,12 +30,14 @@
       можно писать такой import React from 'react'
     */
     "allowSyntheticDefaultImports": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules"}]
+    "plugins": [{ "name": "typescript-plugin-css-modules"}],
+    "sourceMap": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["src/**/*", "./config/jest/setupTests.ts"]
+  "include": ["src/**/*", "./config/jest/setupTests.ts"],
+  "exclude": ["node_modules"]
 }
