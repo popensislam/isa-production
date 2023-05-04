@@ -14,7 +14,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 const initReducers: ReducerList = { loginForm: loginReducer };
 
 interface LoginFormProps {
-  onSuccess?: () => void
+  onSuccess: () => void
 }
 
 const LoginForm = memo(({ onSuccess }: LoginFormProps) => {

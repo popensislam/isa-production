@@ -1,6 +1,7 @@
 import cls from './Button.module.scss';
 import { ButtonHTMLAttributes, FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+
 
 import 'app/styles/index.scss';
 
@@ -32,14 +33,14 @@ export const Button: FC<ButtonProps> = memo((props) => {
   const {
     className,
     children,
-    theme,
+    theme = ThemeButton.OUTLINE,
     square,
-    size,
+    size = ButtonSizes.M,
     disabled = false,
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = { [ cls.square ]: square, [ cls.disabled ]: disabled };
+  const mods: Mods = { [ cls.square ]: square, [ cls.disabled ]: disabled };
 
   const additional = [ className, cls[ theme ], cls[ size ] ];
 

@@ -1,7 +1,8 @@
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
-import { ReactNode, MouseEvent, useState, useRef, useEffect, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ReactNode, MouseEvent, useState, useRef, useEffect, useCallback, MutableRefObject } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+
 
 interface ModalProps {
     className?: string,
@@ -17,7 +18,9 @@ export const Modal = ({ className, children, isOpen, lazy, onClose }: ModalProps
 
   const [ isMounted, setIsMounted ] = useState(false);
   const [ isClosing, setIsClosing ] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
@@ -60,7 +63,8 @@ export const Modal = ({ className, children, isOpen, lazy, onClose }: ModalProps
     return null;
   }
 
-  const mods: Record<string, boolean> = { [ cls.opened ]: isOpen, [ cls.isClosing ]: isClosing };
+  const mods: Mods = { [ cls.opened ]: isOpen, [ cls.isClosing ]: isClosing };
+
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [ className ])}>
