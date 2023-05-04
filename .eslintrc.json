@@ -15,6 +15,7 @@
       "plugin:i18next/recommended",
       "plugin:import/recommended"
     ],
+    "globals": {"__IS_DEV__": true, "__API__": true},
     "rules": {
 
       "import/no-unresolved": "off",
