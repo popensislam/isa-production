@@ -11,7 +11,8 @@ export default {
   argTypes: { backgroundColor: { control: 'color' }, },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />;
+// eslint-disable-next-line no-restricted-syntax
+const Template: ComponentStory<typeof LoginForm> = () => <LoginForm onSuccess={() => console.log('Close')} />;
 
 export const Light = Template.bind({});
 Light.decorators = [ ThemeDecorator(Theme.LIGHT), StoreDecorator({ loginForm: { username: '123', password: '123' } }) ];

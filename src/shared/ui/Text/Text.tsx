@@ -17,7 +17,6 @@ interface TextProps {
 
 export const Text = ({ className, title, text, theme = TextTheme.PRIMARY }: TextProps) => {
 
-  console.log(title, text);
   return (
     <div className={classNames(cls.text, {}, [ cls[ theme ], className ])}>
       {title && <p className={cls.title}>{title}</p>}

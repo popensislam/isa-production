@@ -2,6 +2,7 @@
   "compilerOptions": {
     /* Куда идет сборка (в нашем случае не нужна, мы собираем все с webpack) */
     "outDir": "./dist/",
+    "strict": true,
     /* Подсвечивает места где тип не указан */
     "noImplicitAny": true,
     "module": "ESNext",
