@@ -4,13 +4,9 @@ import { profileReducer } from 'entities/Profile';
 import type { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 
-interface ProfilePageProps {
-    className?: string
-}
-
 const reducers: ReducerList = { profile: profileReducer };
 
-const ProfilePage = ({ className }: ProfilePageProps) => {
+const ProfilePage = () => {
   const { t } = useTranslation();
   return (
     <DynamicModuleLoader reducers={reducers}>

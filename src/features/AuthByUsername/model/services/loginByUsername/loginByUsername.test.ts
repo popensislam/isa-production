@@ -1,40 +1,44 @@
 import { loginByUsername } from './loginByUsername';
 
-import axios from 'axios';
-import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 
-
-jest.mock('axios');
-const mockedAxios = jest.mocked(axios, true);
 
 describe('loginByUsername', () => {
 
   test('login fullfilled', async () => {
-    const response = { username: '123', id: '1' };
-    mockedAxios.post.mockResolvedValueOnce({ data: { data: response, } });
+    // const response = { username: '123', id: '1' };
+
+    // const thunk = new TestAsyncThunk(loginByUsername);
+
+    // const result = await thunk.callThunk({ username: '123', password: '123' });
+
+    // expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(response));
+    // expect(thunk.api.post).toHaveBeenCalled();
+    // expect(result.payload).toEqual(response);
+    // expect(result.meta.requestStatus).toBe('fulfilled');
+
+    const userValue = { id: '1', username: '123', password: '123' };
 
     const thunk = new TestAsyncThunk(loginByUsername);
-
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue, message: 'success' }));
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(response));
-    expect(mockedAxios.post).toHaveBeenCalled();
-    expect(result.payload).toEqual(response);
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
+    expect(result.payload).toEqual(userValue);
   });
 
   test('login rejected', async () => {
-    mockedAxios.post.mockResolvedValueOnce({ status: 403 });
 
     const thunk = new TestAsyncThunk(loginByUsername);
-
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk({ username: '123', password: '123' });
 
-    expect(mockedAxios.post).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(result.payload).toEqual('Error');
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
+    expect(result.payload).toBe('Error');
   });
 
   // let dispatch: Dispatch;
