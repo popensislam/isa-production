@@ -8,17 +8,20 @@ export const TextTheme = {
 
 type TextThemeType = typeof TextTheme[keyof typeof TextTheme]
 
+type TextAlignType = 'center' | 'right' | 'left'
+
 interface TextProps {
     className?: string,
     title?: string,
     text?: string,
     theme?: TextThemeType
+    align?: TextAlignType
 }
 
-export const Text = ({ className, title, text, theme = TextTheme.PRIMARY }: TextProps) => {
-
+export const Text = (props: TextProps) => {
+  const { className, title, text, theme = TextTheme.PRIMARY, align = 'left' } = props;
   return (
-    <div className={classNames(cls.text, {}, [ cls[ theme ], className ])}>
+    <div className={classNames(cls.text, {}, [ cls[ theme ], className, cls[ align ] ])}>
       {title && <p className={cls.title}>{title}</p>}
       {text && <p className={cls.text}>{text}</p>}
     </div>

@@ -9,8 +9,11 @@
   "shortLang": "Ру",
   "main": "Главная страница",
   "about": "О сайте",
+  "profile-page": "Профиль",
   "login": "Войти",
   "form-auth": "Форма авторизации",
   "wrong-password-login": "Неверный логин или пароль, повторите попытку",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "select-currency": "Выберите валюту",
+  "select-country": "Выберите страну"
 }

@@ -28,7 +28,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       <Button data-testid='sidebar-toggle' theme={ThemeButton.BACKGROUND_INVERTED} square={true} size={ButtonSizes.XL} className={cls.collapsedBtn} onClick={onToggle}>{collapsed ? '>' : '<'}</Button>
       <div className={cls.items}>
         {SidebarItemsList.map((item: SidebarItemI) => (
-          <SidebarItem key={item.path} to={item.path} className={cls.linkItem} Icon={item.Icon}>{t(item.text)}</SidebarItem>
+          <SidebarItem key={item.path} to={item.path} authOnly={item.authOnly} className={cls.linkItem} Icon={item.Icon}>{t(item.text)}</SidebarItem>
         ))}
       </div>
       <div className={cls.switchers}>

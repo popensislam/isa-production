@@ -2,5 +2,14 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "yout-firstname": "Ваше имя",
-  "your-lastname": "Ваша фамилия"
+  "your-lastname": "Ваша фамилия",
+  "error-get-profile-card": "Произошла ошибка при загрузки профиля",
+  "try-again": "Попробуйте снова",
+  "cancel": "Отмена",
+  "save": "Сохранить",
+  "your-age": "Ваш возраст",
+  "your-username": "Ваш никнейм",
+  "your-country": "Ваша страна",
+  "your-city": "Ваш город",
+  "your-currency": "Ваша валюта"
 }
