@@ -1,4 +1,5 @@
 import { BuildOptions } from './types/config';
+// eslint-disable-next-line import/default
 import webpack from 'webpack';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';

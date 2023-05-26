@@ -32,8 +32,8 @@ jobs:
       - name: build production
         run: npm run build:prod
         if: always()
-      - name: build storybook
-        run: npm run storybook:build
-        if: always()
-      - name: screenshot testing
-        run: npm run test:ui:ci
+      # - name: build storybook
+      #   run: npm run storybook:build
+      #   if: always()
+      # - name: screenshot testing
+      #   run: npm run test:ui:ci

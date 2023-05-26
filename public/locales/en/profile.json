@@ -2,5 +2,14 @@
   "profile": "Profile",
   "edit": "Edit",
   "yout-firstname": "Your firstname",
-  "your-lastname": "Your lastname"
+  "your-lastname": "Your lastname",
+  "error-get-profile-card": "Error by getting info of profile",
+  "try-again": "Try again",
+  "cancel": "Cancel",
+  "save": "Save",
+  "your-age": "Yout age",
+  "your-username": "Your username",
+  "your-country": "Your country",
+  "your-city": "Your city",
+  "your-currency": "Your currency"
 }
