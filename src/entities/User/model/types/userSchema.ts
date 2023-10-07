@@ -1,5 +1,6 @@
 export interface UserSchema {
     userData?: User,
+    _inited: boolean
 }
 
 export interface User {
