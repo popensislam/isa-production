@@ -1,6 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
 import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
-import { withTranslation } from 'react-i18next';
 import { PageError } from 'widgets/PageError';
 
 interface ErrorBoundaryProps {

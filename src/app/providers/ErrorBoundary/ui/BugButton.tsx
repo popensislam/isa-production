@@ -7,7 +7,7 @@ interface BugButtonProps {
 }
 
 /** Компонент для тестирования ErrorBoundary */
-export const BugButton = ({ className }: BugButtonProps) => {
+export const BugButton = ({}: BugButtonProps) => {
   const [ error, setError ] = useState(false);
 
   const onThrow = () => setError(true);

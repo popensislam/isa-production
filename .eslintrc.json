@@ -15,7 +15,7 @@
       "plugin:i18next/recommended",
       "plugin:import/recommended"
     ],
-    "globals": {"__IS_DEV__": true, "__API__": true},
+    "globals": {"__IS_DEV__": true, "__API__": true, "__PROJECT__": true},
     "rules": {
 
       "import/default": "off",
