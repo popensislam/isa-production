@@ -3,7 +3,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import 'app/styles/index.scss';
 
 export default {
-  title: 'shared/Text',
+  title: 'shared/<FTName | capitalize>',
   component: <FTName | capitalize>,
   argTypes: { backgroundColor: { control: 'color' }, },
 } as ComponentMeta<typeof <FTName | capitalize>>;
