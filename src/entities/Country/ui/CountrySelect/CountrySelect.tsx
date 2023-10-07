@@ -1,10 +1,7 @@
-import cls from './CountrySelect.module.scss';
-import { Currency } from 'entities/Currency';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
 import { Country, CountryType } from 'entities/Country/model/types/Country';
-import type { CurrencyType } from 'entities/Currency';
 
 interface CountrySelectProps {
     className?: string

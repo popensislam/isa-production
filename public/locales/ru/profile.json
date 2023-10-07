@@ -11,5 +11,10 @@
   "your-username": "Ваш никнейм",
   "your-country": "Ваша страна",
   "your-city": "Ваш город",
-  "your-currency": "Ваша валюта"
+  "your-currency": "Ваша валюта",
+  "incorrect-user-data": "Имя и фамилия обязательны",
+  "incorrect-age": "Некорректный возраст",
+  "incorrect-country": "Выберите страну",
+  "no-data": "Нет данных",
+  "server-error": "Серверная ошибка"
 }

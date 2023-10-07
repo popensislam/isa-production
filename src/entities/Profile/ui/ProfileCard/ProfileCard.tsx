@@ -1,19 +1,11 @@
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/ProfileSchema';
-import { getProfile } from 'entities/Profile/model/selectors/getProfile/getProfile';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { useSelector } from 'react-redux';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { ChangeEvent } from 'react';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Select } from 'shared/ui/Select/Select';
-import { Currency } from 'entities/Currency/model/types/Currency';
 import { CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country';
 

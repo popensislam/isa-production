@@ -1,28 +1,41 @@
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData, getForm, getProfile, getProfileError, getProfileIsLoading, getProfileReadonly, Profile, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
+import { fetchProfileData, getForm, getProfile, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, Profile, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { CurrencyType } from 'entities/Currency';
 import { CountryType } from 'entities/Country';
+import { Text } from 'shared/ui/Text/Text';
+import { ValidateProfileErrors } from 'entities/Profile/model/types/ProfileSchema';
 import type { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 
 const reducers: ReducerList = { profile: profileReducer };
 
 const ProfilePage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
   const form = useSelector(getForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ ValidateProfileErrors.INCORRECT_USER_DATA ]: t('incorrect-user-data'),
+    [ ValidateProfileErrors.INCORRECT_AGE ]: t('incorrect-age'),
+    [ ValidateProfileErrors.INCORRECT_COUNTRY ]: t('incorrect-country'),
+    [ ValidateProfileErrors.NO_DATA ]: t('no-data'),
+    [ ValidateProfileErrors.SERVER ]: t('server-error')
+  };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [ dispatch ]);
 
 
@@ -49,6 +62,9 @@ const ProfilePage = () => {
     <DynamicModuleLoader reducers={reducers}>
       <div>
         <ProfilePageHeader/>
+        {validateErrors?.map((err) => (
+          <Text text={validateErrorTranslates[ err ]} theme={'error'} key={err}/>
+        ))}
         <ProfileCard
           profile={form}
           isLoading={isLoading}
