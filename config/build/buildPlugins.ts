@@ -14,7 +14,7 @@ export function buildPlugin({ paths, isDev, apiUrl, project }: BuildOptions): we
     new HTMLWebpackPlugin({ template: paths.html }), new webpack.ProgressPlugin(), new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
-    }), new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev), __API__: JSON.stringify(apiUrl), __PROJECT__: project }),
+    }), new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev), __API__: JSON.stringify(apiUrl), __PROJECT__: JSON.stringify(project) }),
   ];
 
 
