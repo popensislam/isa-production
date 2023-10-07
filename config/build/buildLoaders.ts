@@ -1,9 +1,12 @@
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import webpack from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+
+  const { isDev } = options;
 
   const fileloader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
@@ -18,30 +21,12 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const styleLoader = buildCssLoader(isDev);
+  const babelLoader = buildBabelLoader(options);
 
   const styleCssLoader = {
     test: /\.css$/i,
     loader: 'css-loader',
     options: { modules: true, },
-  };
-
-  const babelLoader = {
-    test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: [ '@babel/preset-env' ],
-        'plugins': [
-          [
-            'i18next-extract', {
-              locales: [ 'ru', 'en' ],
-              keyAsDefaultValue: true
-            }
-          ]
-        ]
-      }
-    }
   };
 
   const typescriptLoader = {
