@@ -1,4 +1,4 @@
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -38,3 +38,9 @@ OnlyTextDark.decorators = [ ThemeDecorator(Theme.DARK) ];
 
 export const Error = Template.bind({});
 Error.args = { title: 'Error text', text: 'Some text text', theme: TextTheme.ERROR };
+
+export const SizeL = Template.bind({});
+SizeL.args = { title: 'Some title', text: 'Some text', size: TextSize.L };
+
+export const SizeM = Template.bind({});
+SizeM.args = { title: 'Some title', text: 'Some text', size: TextSize.M };

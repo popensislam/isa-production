@@ -1,3 +1,4 @@
+import { ArticleDetailsSchema } from 'entities/Article';
 import type { AxiosInstance } from 'axios';
 import type { To, NavigateOptions } from 'react-router-dom';
 import type { EnhancedStore, ReducersMapObject, AnyAction, Reducer, CombinedState } from '@reduxjs/toolkit';
@@ -11,6 +12,7 @@ export interface StateSchema {
     /** ASYNC REDUCERS */
     loginForm?: LoginSchema
     profile?: ProfileSchema
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
