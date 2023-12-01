@@ -1,4 +1,3 @@
-import React from 'react';
 import './[FTName].module.scss'
 
 interface <FTName | capitalize>Props {
