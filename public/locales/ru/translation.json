@@ -15,5 +15,6 @@
   "wrong-password-login": "Неверный логин или пароль, повторите попытку",
   "logout": "Выйти",
   "select-currency": "Выберите валюту",
-  "select-country": "Выберите страну"
+  "select-country": "Выберите страну",
+  "there is no comments": "Нет комментариев"
 }

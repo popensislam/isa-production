@@ -103,13 +103,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://wallpapershome.com/images/pages/pic_h/21486.jpg"
     },
     {
       "id": "1",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://codingweek.org/wp-content/uploads/2019/08/man-coding-in-office-LHVW23S.jpg"
     }
   ],
   "profile": {
