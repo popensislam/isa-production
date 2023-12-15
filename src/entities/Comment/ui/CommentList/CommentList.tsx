@@ -16,6 +16,16 @@ export const CommentList = (props: CommentListProps) => {
 
   const { t } = useTranslation();
 
+  if (isLoading) {
+    return (
+      <div className={classNames('', {}, [ className ])}>
+        <CommentCard isLoading className={cls.comment}/>
+        <CommentCard isLoading className={cls.comment} />
+        <CommentCard isLoading className={cls.comment} />
+      </div>
+    );
+  }
+
   return (
     <div className={classNames('', {}, [ className ])}>
       {!!comments?.length

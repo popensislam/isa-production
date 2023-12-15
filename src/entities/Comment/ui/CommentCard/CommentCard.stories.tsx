@@ -8,4 +8,16 @@ export default {
   argTypes: { backgroundColor: { control: 'color' }, },
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (...args) => <CommentCard />;
+const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+
+export const Normal = Template.bind({});
+Normal.args = {
+  comment: {
+    user: {
+      id: '1',
+      username: 'Storybook'
+    },
+    id: '2',
+    text: 'Storybook comment'
+  }
+};

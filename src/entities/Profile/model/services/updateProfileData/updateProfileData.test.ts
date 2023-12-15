@@ -11,6 +11,7 @@ describe('updateProfileData', () => {
   test('fullfilled', async () => {
 
     const profile = {
+      id: '1',
       first: 'Islam',
       lastname: 'Islam',
       age: 21,
@@ -22,7 +23,7 @@ describe('updateProfileData', () => {
 
     const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: profile } });
     thunk.api.put.mockReturnValue(Promise.resolve({ data: profile }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(profile);
@@ -32,7 +33,7 @@ describe('updateProfileData', () => {
 
     const thunk = new TestAsyncThunk(updateProfileData);
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ ValidateProfileErrors.SERVER ]);
