@@ -1,5 +1,5 @@
 import cls from './ArticleDetailsPage.module.scss';
-import { memo, useCallback } from 'react';
+import { Suspense, memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -48,7 +48,9 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
       <div>
         <ArticleDetails id={id || storybookId || ''}/>
         <Text title={t('this is comments')} className={cls.commentTitle}/>
-        <AddCommentForm onSendComment={onSendComment}/>
+        <Suspense fallback=''>
+          <AddCommentForm onSendComment={onSendComment}/>
+        </Suspense>
         <CommentList isLoading={commentsIsLoading} comments={comments}/>
       </div>
     </DynamicModuleLoader>
