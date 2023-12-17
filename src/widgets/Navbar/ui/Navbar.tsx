@@ -29,22 +29,22 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.navbar, {}, [ className ])}>
+      <header className={classNames(cls.navbar, {}, [ className ])}>
         <Button theme={ThemeButton.CLEAR} onClick={onLogout}>
           {t('logout')}
         </Button>
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={classNames(cls.navbar, {}, [ className ])}>
+    <header className={classNames(cls.navbar, {}, [ className ])}>
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onToggleModal}/>
       )}
       <Button theme={ThemeButton.CLEAR} onClick={onToggleModal}>
         {t('login')}
       </Button>
-    </div>
+    </header>
   );
 };

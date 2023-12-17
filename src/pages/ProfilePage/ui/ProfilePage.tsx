@@ -11,6 +11,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileErrors } from 'entities/Profile/model/types/ProfileSchema';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import type { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 
@@ -62,21 +63,23 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div>
-        <ProfilePageHeader/>
-        {validateErrors?.map((err) => (
-          <Text text={validateErrorTranslates[ err ]} theme={'error'} key={err}/>
-        ))}
-        <ProfileCard
-          profile={form}
-          isLoading={isLoading}
-          error={error}
-          onChangeForm={onChangeForm}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-          readonly={readonly}
-        />
-      </div>
+      <Page>
+        <div>
+          <ProfilePageHeader/>
+          {validateErrors?.map((err) => (
+            <Text text={validateErrorTranslates[ err ]} theme={'error'} key={err}/>
+          ))}
+          <ProfileCard
+            profile={form}
+            isLoading={isLoading}
+            error={error}
+            onChangeForm={onChangeForm}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+            readonly={readonly}
+          />
+        </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -16,6 +16,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { sendCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 
 const reducerList: ReducerList = { articleDetailsComments: articleDetailsCommentsReducer };
@@ -52,17 +53,19 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
 
   return (
     <DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
-      <div>
-        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-          {t('article_details.back')}
-        </Button>
-        <ArticleDetails id={id || storybookId || ''}/>
-        <Text title={t('this is comments')} className={cls.commentTitle}/>
-        <Suspense fallback=''>
-          <AddCommentForm onSendComment={onSendComment}/>
-        </Suspense>
-        <CommentList isLoading={commentsIsLoading} comments={comments}/>
-      </div>
+      <Page>
+        <div>
+          <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
+            {t('article_details.back')}
+          </Button>
+          <ArticleDetails id={id || storybookId || ''}/>
+          <Text title={t('this is comments')} className={cls.commentTitle}/>
+          <Suspense fallback=''>
+            <AddCommentForm onSendComment={onSendComment}/>
+          </Suspense>
+          <CommentList isLoading={commentsIsLoading} comments={comments}/>
+        </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

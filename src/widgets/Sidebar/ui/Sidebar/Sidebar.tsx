@@ -32,7 +32,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   }, [ sidebarItemList, t ]);
 
   return (
-    <div data-testid='sidebar' className={classNames(cls.Sidebar, { [ cls.collapsed ]: collapsed }, [ className ])}>
+    <menu data-testid='sidebar' className={classNames(cls.Sidebar, { [ cls.collapsed ]: collapsed }, [ className ])}>
       <Button data-testid='sidebar-toggle' theme={ThemeButton.BACKGROUND_INVERTED} square={true} size={ButtonSizes.XL} className={cls.collapsedBtn} onClick={onToggle}>{collapsed ? '>' : '<'}</Button>
       <div className={cls.items}>
         {itemList}
@@ -42,6 +42,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <LangSwitcher className={cls.lang} short={collapsed}/>
         <BugButton/>
       </div>
-    </div>
+    </menu>
   );
 });

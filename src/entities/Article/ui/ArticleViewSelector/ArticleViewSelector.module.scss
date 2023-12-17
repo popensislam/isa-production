@@ -1,0 +1,10 @@
+.list {
+  display: flex;
+  gap: 10px;
+}
+
+.notSelected {
+  svg {
+    opacity: 0.5;
+  }
+}
