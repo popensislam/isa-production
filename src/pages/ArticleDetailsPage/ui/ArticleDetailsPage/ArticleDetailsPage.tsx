@@ -1,7 +1,7 @@
 import cls from './ArticleDetailsPage.module.scss';
 import { Suspense, memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -14,6 +14,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { sendCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 
 const reducerList: ReducerList = { articleDetailsComments: articleDetailsCommentsReducer };
@@ -23,9 +25,14 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
   const { t } = useTranslation('article_details');
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [ navigate ]);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(sendCommentForArticle(text));
@@ -46,6 +53,9 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
   return (
     <DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
       <div>
+        <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
+          {t('article_details.back')}
+        </Button>
         <ArticleDetails id={id || storybookId || ''}/>
         <Text title={t('this is comments')} className={cls.commentTitle}/>
         <Suspense fallback=''>

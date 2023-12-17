@@ -1,5 +1,9 @@
 {
   "about": "about",
+  "article_details": {
+    "back": "back"
+  },
+  "back": "back",
   "cancel": "cancel",
   "edit": "edit",
   "error fetching article": "error fetching article",
@@ -15,6 +19,8 @@
   "not found page": "not found page",
   "pereklyuchit": "pereklyuchit",
   "profile": "profile",
+  "read more": "read more",
+  "read next": "read next",
   "reload page": "reload page",
   "save": "save",
   "select-country": "select-country",

@@ -10,6 +10,10 @@ describe('fetchArticleById', () => {
       title: 'Article test',
       subtitle: 'subtitle',
       img: 'some img',
+      user: {
+        id: '1',
+        username: 'admin'
+      },
       views: 122,
       createdAt: '22.02.2022',
       type: [ ArticleType.IT ],

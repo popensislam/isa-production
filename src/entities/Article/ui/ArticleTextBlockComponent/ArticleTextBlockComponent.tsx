@@ -11,10 +11,10 @@ interface ArticleTextBlockComponentProps {
 
 export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {
 
-  const { block } = props;
+  const { block, className } = props;
 
   return (
-    <div>
+    <div className={className}>
       {block.title && (
         <Text title={block.title} className={cls.title}/>
       )}

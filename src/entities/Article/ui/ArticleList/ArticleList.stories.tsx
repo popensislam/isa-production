@@ -1,8 +1,9 @@
-import { memo } from 'react';
-import './ArticlesPage.module.scss';
-import { ArticleList, ArticleListView } from 'entities/Article';
+import { ArticleList } from './ArticleList';
+import { ArticleListView } from 'entities/Article/model/types/article';
+import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import 'app/styles/index.scss';
 
-const articlesArr =[
+const articlesArr = [
   {
     'id': '1',
     'title': 'Javascript news Javascript news Javascript news Javascript news',
@@ -77,13 +78,38 @@ const articlesArr =[
   }
 ];
 
+export default {
+  title: 'entities/ArticleList',
+  component: ArticleList,
+  argTypes: { backgroundColor: { control: 'color' }, },
+} as ComponentMeta<typeof ArticleList>;
 
-const ArticlesPage = () => {
-  return (
-    <div>
-      <ArticleList view={ArticleListView.SMALL} articles={new Array(16).fill(0).map((item, index) => ({ ...articlesArr[ 0 ], id: index })) as any}/>
-    </div>
-  );
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const BigList = Template.bind({});
+BigList.args = {
+  isLoading: false,
+  articles: articlesArr as any,
+  view: ArticleListView.BIG
 };
 
-export default memo(ArticlesPage);
+export const SmallList = Template.bind({});
+SmallList.args = {
+  isLoading: false,
+  articles: articlesArr as any,
+  view: ArticleListView.SMALL
+};
+
+export const isLoadingBig = Template.bind({});
+isLoadingBig.args = {
+  isLoading: true,
+  articles: [],
+  view: ArticleListView.BIG
+};
+
+export const isLoadingSmall = Template.bind({});
+isLoadingSmall.args = {
+  isLoading: true,
+  articles: [],
+  view: ArticleListView.SMALL
+};
