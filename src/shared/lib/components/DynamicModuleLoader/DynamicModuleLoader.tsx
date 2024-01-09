@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import type { Reducer } from '@reduxjs/toolkit';
 import type { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
@@ -21,7 +21,12 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
   useEffect(() => {
 
+    const mounterReducers = store.reducerManager.getReducerMap();
+
     Object.entries(reducers).forEach(([ key, reducer ]) => {
+      // Already exist
+      if (mounterReducers[ key as StateSchemaKey ]) return;
+
       store.reducerManager.add(key as StateSchemaKey, reducer);
       dispatch({ type: `@INIT ${key} reducer` });
     });

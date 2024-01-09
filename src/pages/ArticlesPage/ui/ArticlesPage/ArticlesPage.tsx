@@ -1,15 +1,14 @@
-import cls from './ArticlesPage.module.scss';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { memo, useCallback } from 'react';
 import { ArticleList, ArticleViewSelector } from 'entities/Article';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import { getArticlesPageIsLoading, getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlesList } from 'pages/ArticlesPage/model/services/fetchNextArticlesList/fetchNextArticlesList';
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 
 const reducers: ReducerList = { articlesPage: articlesPageReducer };
 
@@ -33,12 +32,11 @@ const ArticlesPage = () => {
   }, [ dispatch ]);
 
   useInitEffect(() => {
-    dispatch(articlesPageActions.initView());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   }, []);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart}>
         <div>
           <ArticleViewSelector view={view} onViewClick={onChangeView}/>
