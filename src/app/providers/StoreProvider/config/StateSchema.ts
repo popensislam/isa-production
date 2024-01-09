@@ -1,6 +1,7 @@
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { UISchema } from 'features/UI';
 import type { ArticlesPageSchema } from 'pages/ArticlesPage';
 import type { AxiosInstance } from 'axios';
 import type { EnhancedStore, ReducersMapObject, AnyAction, Reducer, CombinedState } from '@reduxjs/toolkit';
@@ -10,6 +11,7 @@ import type { ProfileSchema } from 'entities/Profile';
 
 export interface StateSchema {
     user: UserSchema,
+    ui: UISchema
 
     /** ASYNC REDUCERS */
     loginForm?: LoginSchema
