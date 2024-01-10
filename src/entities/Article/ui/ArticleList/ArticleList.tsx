@@ -3,6 +3,8 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { Article, ArticleListView } from 'entities/Article/model/types/article';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleListProps {
   className?: string
@@ -22,9 +24,19 @@ const getSkeletons = (view: ArticleListView) => {
 export const ArticleList = (props: ArticleListProps) => {
   const { articles, view = ArticleListView.SMALL, isLoading, className } = props;
 
+  const { t } = useTranslation();
+
   const renderArticle = (article: Article) => {
     return <ArticleListItem article={article} view={view} key={article.id}/>;
   };
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames('', {}, [ className, cls[ view ] ])}>
+        <Text size={TextSize.L} title={t('there is no articles')}/>
+      </div>
+    );
+  }
 
   return (
     <div className={classNames('', {}, [ className, cls[ view ] ])}>

@@ -446,10 +446,10 @@
   },
   {
     "id": "13",
-    "title": "Javascript news обновление 3",
+    "title": "Kotlin news обновление 3",
     "subtitle": "Что нового в JS за 2022 год?",
     "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-    "views": 1322,
+    "views": 222,
     "createdAt": "26.02.2022",
     "userId": "2",
     "type": [
@@ -470,10 +470,10 @@
   },
   {
     "id": "14",
-    "title": "Javascript news обновление 3",
+    "title": "Java news обновление 3",
     "subtitle": "Что нового в JS за 2022 год?",
     "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-    "views": 1322,
+    "views": 532,
     "createdAt": "26.02.2022",
     "userId": "2",
     "type": [
@@ -494,10 +494,10 @@
   },
   {
     "id": "15",
-    "title": "Javascript news обновление 3",
+    "title": "Python news обновление 3",
     "subtitle": "Что нового в JS за 2022 год?",
     "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-    "views": 1322,
+    "views": 754,
     "createdAt": "26.02.2022",
     "userId": "2",
     "type": [
@@ -525,7 +525,7 @@
     "createdAt": "26.02.2022",
     "userId": "2",
     "type": [
-        "IT"
+        "SCIENCE"
     ],
     "blocks": [
         {
@@ -549,7 +549,7 @@
     "createdAt": "26.02.2022",
     "userId": "2",
     "type": [
-        "IT"
+        "ECONOMICS"
     ],
     "blocks": [
         {

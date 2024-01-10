@@ -19,5 +19,18 @@
   "there is no comments": "Нет комментариев",
   "send": "Отправить",
   "write_comment": "Введите текст комментария",
-  "read more": "Читать далее"
+  "read more": "Читать далее",
+  "sort by": "Сортировать по",
+  "search": "Поиск",
+  "up": "Возрастанию",
+  "down": "Убыванию",
+  "by": "По",
+  "createdAt": "Дате создания",
+  "articleTitle": "Названию",
+  "views": "Просмотрам",
+  "IT": "Айти",
+  "Econimics": "Экономика",
+  "Science": "Science",
+  "All": "Все",
+  "there is no articles": "Нет статей"
 }
