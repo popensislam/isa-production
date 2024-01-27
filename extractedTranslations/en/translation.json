@@ -1,6 +1,8 @@
 {
   "All": "",
+  "Create new article": "",
   "Econimics": "",
+  "Edit article with id": "",
   "IT": "",
   "Recommendations": "",
   "Science": "",
@@ -12,6 +14,7 @@
   "back": "",
   "by": "",
   "cancel": "cancel",
+  "create": "",
   "createdAt": "",
   "down": "",
   "edit": "edit",

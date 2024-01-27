@@ -1,5 +1,6 @@
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducers } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { Suspense, memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -30,17 +31,12 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
   const { t } = useTranslation('article_details');
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const recIsLoading = useSelector(getArticleRecommendationsIsLoading);
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [ navigate ]);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(sendCommentForArticle(text));
@@ -63,9 +59,7 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
     <DynamicModuleLoader reducers={reducerList} removeAfterUnmount>
       <Page>
         <div>
-          <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
-            {t('article_details.back')}
-          </Button>
+          <ArticleDetailsPageHeader />
           <ArticleDetails id={id || storybookId || ''}/>
           <Text title={t('Recommendations')} className={cls.commentTitle}/>
           <ArticleList

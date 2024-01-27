@@ -33,5 +33,9 @@
   "Science": "Science",
   "All": "All",
   "there is no articles": "There is no articles",
-  "test": "test"
+  "test": "test",
+  "edit": "Edit",
+  "Edit article with id": "Edit article with ID =",
+  "Create new article": "Create new article",
+  "create": "Create article"
 }

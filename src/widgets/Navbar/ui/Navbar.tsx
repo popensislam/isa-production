@@ -7,6 +7,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
     className?: string
@@ -30,7 +33,9 @@ export const Navbar = ({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.navbar, {}, [ className ])}>
-        <Button theme={ThemeButton.CLEAR} onClick={onLogout}>
+        <Text className={cls.appName} title='Pet App' theme='primary' />
+        <AppLink to={RoutePath.article_create}>{t('create')}</AppLink>
+        <Button className={cls.logOut} theme={ThemeButton.CLEAR} onClick={onLogout}>
           {t('logout')}
         </Button>
       </header>

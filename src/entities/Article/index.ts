@@ -8,3 +8,5 @@ export { ArticleListView, ArticleSortField } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
 export { articleDetailsReducer, articleDetailsActions } from './model/slice/articleDetailsSlice';
+
+export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
