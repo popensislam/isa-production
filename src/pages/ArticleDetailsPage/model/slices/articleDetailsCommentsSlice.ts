@@ -11,7 +11,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 const commentsAdapter = createEntityAdapter<CommentType>({ selectId: (comment) => comment.id, });
 
-export const getArticleComments = commentsAdapter.getSelectors<StateSchema>((state) => state.articleDetailsComments || commentsAdapter.getInitialState());
+export const getArticleComments = commentsAdapter.getSelectors<StateSchema>((state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState());
 
 export const articleDetailsCommentsSlice = createSlice({
   name: 'articleDetailsComments',

@@ -2,6 +2,7 @@ import cls from './Page.module.scss';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getUIScrollByPath, uiActions } from 'features/UI';
 import { MutableRefObject, ReactNode, UIEvent, memo, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -20,6 +21,8 @@ export const Page = memo(({ children, className, onScrollEnd }: PageProps) => {
 
   const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLElement>;
+
+  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
@@ -43,7 +46,6 @@ export const Page = memo(({ children, className, onScrollEnd }: PageProps) => {
       onScroll={onScroll}
     >
       {children}
-
       {onScrollEnd ? (
         <div className={cls.trigger} ref={(ref: HTMLDivElement) => triggerRef.current = ref}></div>
       ) : null}

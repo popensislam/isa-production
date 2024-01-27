@@ -2,5 +2,6 @@
   "there is no article id": "Статья не найдена",
   "error fetching article": "Произошла ошибка при загрузки статьи",
   "article_details.this is comments": "Комментарии",
-  "article_details.back": "Назад к списку"
+  "article_details.back": "Назад к списку",
+  "article_details.Recommendations": "Рекомендуем"
 }

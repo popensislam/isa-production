@@ -1,12 +1,13 @@
 import cls from './ArticleDetailsPage.module.scss';
+import { articleDetailsPageReducers } from '../../model/slices';
 import { Suspense, memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsCommentsReducer, getArticleComments } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
 import { useSelector } from 'react-redux';
 import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comment';
 import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
@@ -17,9 +18,12 @@ import { sendCommentForArticle } from 'pages/ArticleDetailsPage/model/services/a
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { getArticleRecommendations } from 'pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
+import { fetchArticleRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations';
 
 
-const reducerList: ReducerList = { articleDetailsComments: articleDetailsCommentsReducer };
+const reducerList: ReducerList = { articleDetailsPage: articleDetailsPageReducers };
 
 const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
   const { id } = useParams<{ id: string }>();
@@ -31,6 +35,9 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recIsLoading = useSelector(getArticleRecommendationsIsLoading);
+
   const onBackToList = useCallback(() => {
     navigate(RoutePath.articles);
   }, [ navigate ]);
@@ -41,6 +48,7 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
 
   useInitEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id && !storybookId) {
@@ -59,6 +67,14 @@ const ArticleDetailsPage = ({ storybookId }: { storybookId?: string }) => {
             {t('article_details.back')}
           </Button>
           <ArticleDetails id={id || storybookId || ''}/>
+          <Text title={t('Recommendations')} className={cls.commentTitle}/>
+          <ArticleList
+            articles={recommendations}
+            isLoading={recIsLoading}
+            className={cls.recommendations}
+            target='_blank'
+          />
+
           <Text title={t('this is comments')} className={cls.commentTitle}/>
           <Suspense fallback=''>
             <AddCommentForm onSendComment={onSendComment}/>

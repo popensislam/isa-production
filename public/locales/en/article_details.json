@@ -2,5 +2,6 @@
   "there is no article id": "There is no article",
   "error fetching article": "Got error by fetching article",
   "article_details.this is comments": "Comments",
-  "article_details.back": "Back to list"
+  "article_details.back": "Back to list",
+  "article_details.Recommendations": "Recommendations"
 }

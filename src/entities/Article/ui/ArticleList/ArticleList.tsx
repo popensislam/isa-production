@@ -5,12 +5,14 @@ import { Article, ArticleListView } from 'entities/Article/model/types/article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { HTMLAttributeAnchorTarget } from 'react';
 
 interface ArticleListProps {
   className?: string
   articles: Article[]
   isLoading?: boolean
   view?: ArticleListView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleListView) => {
@@ -22,12 +24,12 @@ const getSkeletons = (view: ArticleListView) => {
 };
 
 export const ArticleList = (props: ArticleListProps) => {
-  const { articles, view = ArticleListView.SMALL, isLoading, className } = props;
+  const { articles, view = ArticleListView.SMALL, target, isLoading, className } = props;
 
   const { t } = useTranslation();
 
   const renderArticle = (article: Article) => {
-    return <ArticleListItem article={article} view={view} key={article.id}/>;
+    return <ArticleListItem target={target} article={article} view={view} key={article.id}/>;
   };
 
   if (!isLoading && !articles.length) {
