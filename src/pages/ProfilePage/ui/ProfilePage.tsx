@@ -9,6 +9,9 @@ import { CurrencyType } from 'entities/Currency';
 import { CountryType } from 'entities/Country';
 import { Text } from 'shared/ui/Text/Text';
 import { ValidateProfileErrors } from 'entities/Profile/model/types/ProfileSchema';
+import { useInitEffect } from 'shared/lib/hooks/useInitEffect';
+import { useParams } from 'react-router-dom';
+import { Page } from 'widgets/Page/Page';
 import type { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 
@@ -24,6 +27,8 @@ const ProfilePage = () => {
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
 
+  const { id: profileId } = useParams<{ id: string }>();
+
   const validateErrorTranslates = {
     [ ValidateProfileErrors.INCORRECT_USER_DATA ]: t('incorrect-user-data'),
     [ ValidateProfileErrors.INCORRECT_AGE ]: t('incorrect-age'),
@@ -32,12 +37,10 @@ const ProfilePage = () => {
     [ ValidateProfileErrors.SERVER ]: t('server-error')
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [ dispatch ]);
 
+  useInitEffect(() => {
+    profileId && dispatch(fetchProfileData(profileId));
+  }, [ profileId ]);
 
   const onChangeForm = useCallback((value: string, name?: string) => {
     const key = name as keyof Profile;
@@ -60,21 +63,23 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div>
-        <ProfilePageHeader/>
-        {validateErrors?.map((err) => (
-          <Text text={validateErrorTranslates[ err ]} theme={'error'} key={err}/>
-        ))}
-        <ProfileCard
-          profile={form}
-          isLoading={isLoading}
-          error={error}
-          onChangeForm={onChangeForm}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-          readonly={readonly}
-        />
-      </div>
+      <Page>
+        <div>
+          <ProfilePageHeader/>
+          {validateErrors?.map((err) => (
+            <Text text={validateErrorTranslates[ err ]} theme={'error'} key={err}/>
+          ))}
+          <ProfileCard
+            profile={form}
+            isLoading={isLoading}
+            error={error}
+            onChangeForm={onChangeForm}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+            readonly={readonly}
+          />
+        </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -1,4 +1,8 @@
 {
+  "article_details": {
+    "back": ""
+  },
   "error fetching article": "",
-  "there is no article id": ""
+  "there is no article id": "",
+  "this is comments": ""
 }

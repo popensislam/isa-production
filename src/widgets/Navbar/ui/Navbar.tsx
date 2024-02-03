@@ -7,6 +7,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
     className?: string
@@ -29,22 +32,24 @@ export const Navbar = ({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.navbar, {}, [ className ])}>
-        <Button theme={ThemeButton.CLEAR} onClick={onLogout}>
+      <header className={classNames(cls.navbar, {}, [ className ])}>
+        <Text className={cls.appName} title='Pet App' theme='primary' />
+        <AppLink to={RoutePath.article_create}>{t('create')}</AppLink>
+        <Button className={cls.logOut} theme={ThemeButton.CLEAR} onClick={onLogout}>
           {t('logout')}
         </Button>
-      </div>
+      </header>
     );
   }
 
   return (
-    <div className={classNames(cls.navbar, {}, [ className ])}>
+    <header className={classNames(cls.navbar, {}, [ className ])}>
       {isAuthModal && (
         <LoginModal isOpen={isAuthModal} onClose={onToggleModal}/>
       )}
       <Button theme={ThemeButton.CLEAR} onClick={onToggleModal}>
         {t('login')}
       </Button>
-    </div>
+    </header>
   );
 };

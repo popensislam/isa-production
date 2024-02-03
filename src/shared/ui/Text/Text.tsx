@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 export const TextTheme = {
   PRIMARY: 'primary',
+  SECONDARY: 'secondary',
   ERROR: 'error'
 } as const;
 
@@ -25,7 +26,7 @@ export enum TextSize {
 }
 
 export const Text = (props: TextProps) => {
-  const { className, title, size = TextSize.M, text, theme = TextTheme.PRIMARY, align = 'left' } = props;
+  const { className, title, size = TextSize.M, text, theme = TextTheme.SECONDARY, align = 'left' } = props;
 
 
   return (

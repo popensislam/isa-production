@@ -11,6 +11,7 @@ export function App() {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
+    console.log('WORK WORK');
     dispatch(userActions.initAuthData());
   }, [ dispatch ]);
 
