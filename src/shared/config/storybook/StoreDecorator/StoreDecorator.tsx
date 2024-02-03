@@ -3,6 +3,7 @@ import { loginReducer } from 'features/AuthByUsername';
 import { profileReducer } from 'entities/Profile';
 import { articleDetailsReducer } from 'entities/Article';
 import { articleDetailsPageReducers } from 'pages/ArticleDetailsPage';
+import { uiReducer } from 'features/UI';
 import type { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import type { Story } from '@storybook/react';
 
@@ -10,7 +11,8 @@ const defaultAsyncReducers: ReducerList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  articleDetailsPage: articleDetailsPageReducers
+  articleDetailsPage: articleDetailsPageReducers,
+  ui: uiReducer
 };
 
 export const StoreDecorator = (
