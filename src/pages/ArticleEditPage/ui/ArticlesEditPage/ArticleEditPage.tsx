@@ -1,13 +1,8 @@
-import cls from './ArticlesEditPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
 
-interface ArticlesEditPageProps {
-  className?: string
-}
-
-const ArticlesEditPage = (props: ArticlesEditPageProps) => {
+const ArticlesEditPage = () => {
 
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
