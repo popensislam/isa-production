@@ -37,5 +37,7 @@
   "edit": "Edit",
   "Edit article with id": "Edit article with ID =",
   "Create new article": "Create new article",
-  "create": "Create article"
+  "create": "Create article",
+  "Username": "Username",
+  "Password": "Password"
 }

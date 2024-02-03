@@ -39,7 +39,7 @@
 
       "i18next/no-literal-string": ["error", {
         "markupOnly": true,
-        "ignoreAttribute": ["data-testid", "to", "target", "align"]
+        "ignoreAttribute": ["data-testid", "to", "target", "align", "theme", "name", "alt"]
       }],
       "react/react-in-jsx-scope": "off",
       "react-hooks/rules-of-hooks": "error",

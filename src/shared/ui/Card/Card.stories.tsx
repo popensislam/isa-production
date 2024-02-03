@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { Card } from './Card';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import 'app/styles/index.scss';

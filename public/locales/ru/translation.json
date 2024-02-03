@@ -37,5 +37,7 @@
   "edit": "Редактировать",
   "Edit article with id": "Редактирование статьи с ID =",
   "Create new article": "Создание статьи",
-  "create": "Создать статью"
+  "create": "Создать статью",
+  "Username": "Логин",
+  "Password": "Пароль"
 }
