@@ -12,7 +12,7 @@
   "profile-page": "Profile",
   "login": "Login",
   "form-auth": "Log in",
-  "wrong-password-login": "Wrond login or password, try again",
+  "wrong-password-login": "Wrong login or password, try again",
   "logout": "Log out",
   "select-currency": "Select currency",
   "select-country": "Select country",
