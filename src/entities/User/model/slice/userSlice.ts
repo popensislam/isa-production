@@ -17,6 +17,7 @@ export const userSlice = createSlice({
       state._inited = true;
 
       if (!user) return;
+      if (user === 'undefined') return;
       state.userData = JSON.parse(user);
     },
     logout: (state) => {
